@@ -11,11 +11,13 @@ export class PaymentController {
 
     @MessagePattern('initiatePayment')
     async initiatePayment(order: PayOrderDto): Promise<string> {
+        console.log("Recieved event")
         return this.service.initiatePayment(order);
     }
 
     @EventPattern('paymentCanceled')
     async paymentCanceled(trxId: string) {
+        console.log("Recieved event")
         this.service.cancelPayment(trxId);
     }
 }

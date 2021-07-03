@@ -18,6 +18,7 @@ export class PaymentService {
     private readonly logger = new Logger('Payment Service');
 
     initiatePayment(order: PayOrderDto): string {
+        console.log("Payment initiated")
         var payment = new PaymentDetailsDto(order.id);
 
         if (order.status !== 'created')
